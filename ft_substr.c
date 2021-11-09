@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgatnaou <rgatnaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 18:21:09 by rgatnaou          #+#    #+#             */
-/*   Updated: 2021/11/09 14:44:54 by rgatnaou         ###   ########.fr       */
+/*   Created: 2021/11/09 14:04:05 by rgatnaou          #+#    #+#             */
+/*   Updated: 2021/11/09 16:37:19 by rgatnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*sub;
 	size_t	i;
+	size_t	j;
 
 	i = 0;
-	if (n == 0)
-		return (0);
-	while ((i < n - 1)
-		&& (*((unsigned char *)s1 + i) && ((unsigned char *)s2 + i))
-		&& (*((unsigned char *)s1 + i) == *((unsigned char *)s2 + i)))
+	j = 0;
+	if (!s)
+		return (NULL);
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
+	sub = (char *)malloc(sizeof(*s) * len + 1);
+	if (!sub)
+		return (NULL);
+	while (s[i] && i < len)
+	{
+		sub[i] = s[start];
+		start++;
 		i++;
-	return (*((unsigned char *)s1 + i) - *((unsigned char *)s2 + i));
+	}
+	sub[i] = 0;
+	return (sub);
 }
