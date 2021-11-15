@@ -6,12 +6,11 @@
 /*   By: rgatnaou <rgatnaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 16:03:05 by rgatnaou          #+#    #+#             */
-/*   Updated: 2021/11/09 14:49:06 by rgatnaou         ###   ########.fr       */
+/*   Updated: 2021/11/13 14:42:50 by rgatnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {

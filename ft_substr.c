@@ -6,7 +6,7 @@
 /*   By: rgatnaou <rgatnaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 14:04:05 by rgatnaou          #+#    #+#             */
-/*   Updated: 2021/11/09 16:37:19 by rgatnaou         ###   ########.fr       */
+/*   Updated: 2021/11/13 15:41:21 by rgatnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (start >= ft_strlen(s))
 		return (ft_strdup(""));
+	if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
 	sub = (char *)malloc(sizeof(*s) * len + 1);
 	if (!sub)
 		return (NULL);

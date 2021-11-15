@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgatnaou <rgatnaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 15:43:13 by rgatnaou          #+#    #+#             */
-/*   Updated: 2021/11/11 18:43:02 by rgatnaou         ###   ########.fr       */
+/*   Created: 2021/11/14 11:38:23 by rgatnaou          #+#    #+#             */
+/*   Updated: 2021/11/15 11:59:50 by rgatnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t	i;
-	size_t	lendst;
-	size_t	lensrc;
-	size_t	ldst;
+	int	i;
 
-	lensrc = ft_strlen(src);
-	lendst = ft_strlen(dst);
-	ldst = lendst;
 	i = 0;
-	if (!dst || !src)
-		return (0);
-	if (lendst >= dstsize)
-		return (lensrc + dstsize);
-	while (ldst < dstsize - 1 && src[i])
+	if (!s || !f)
+		return ;
+	while (s[i])
 	{
-		dst[ldst] = src[i];
+		f(i, s + i);
 		i++;
-		ldst++;
 	}
-	dst[ldst] = '\0';
-	return (lensrc + lendst);
 }

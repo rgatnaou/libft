@@ -6,7 +6,7 @@
 #    By: rgatnaou <rgatnaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/07 11:36:40 by rgatnaou          #+#    #+#              #
-#    Updated: 2021/11/09 15:27:02 by rgatnaou         ###   ########.fr        #
+#    Updated: 2021/11/14 17:01:37 by rgatnaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,19 +40,26 @@ SRC =   ft_isalnum.c	\
 		ft_atoi.c		\
 		ft_calloc.c		\
 		ft_strdup.c		\
-		ft_substr.c
+		ft_substr.c		\
+		ft_strjoin.c	\
+		ft_strtrim.c	\
+		ft_putnbr_fd.c	\
+		ft_putchar_fd.c	\
+		ft_itoa.c		\
+		ft_strmapi.c	\
+		ft_striteri.c	\
+		ft_putstr_fd.c	\
+		ft_putendl_fd.c	\
+		ft_split.c		\
+		ft_striteri.c
 
-
-
-		
 
 OBJECTS = $(SRC:.c=.o)
 
-INCLUDES = libft.h \
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS) $(INCLUDES)
+$(NAME): $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
 
 %.o : %.c

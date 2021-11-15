@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgatnaou <rgatnaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/07 11:36:32 by rgatnaou          #+#    #+#             */
-/*   Updated: 2021/11/13 15:10:15 by rgatnaou         ###   ########.fr       */
+/*   Created: 2021/11/11 17:47:36 by rgatnaou          #+#    #+#             */
+/*   Updated: 2021/11/15 12:00:10 by rgatnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include<unistd.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_putchar_fd(char c, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	if (!dst && !src)
-		return (NULL);
-	if (dst > src)
-	{
-		while (len--)
-			*((char *)dst + len) = *((char *)src + len);
-	}
-	else
-		ft_memcpy(dst, src, len);
-	return (dst);
+	write(fd, &c, 1);
 }
