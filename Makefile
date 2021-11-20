@@ -6,12 +6,14 @@
 #    By: rgatnaou <rgatnaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/07 11:36:40 by rgatnaou          #+#    #+#              #
-#    Updated: 2021/11/14 17:01:37 by rgatnaou         ###   ########.fr        #
+#    Updated: 2021/11/20 16:47:23 by rgatnaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = libft.a
+
+HEADER = libft.h
 
 CC = gcc
 
@@ -52,21 +54,34 @@ SRC =   ft_isalnum.c	\
 		ft_putendl_fd.c	\
 		ft_split.c		\
 		ft_striteri.c
+		
 
+SRC_B = ft_lstnew.c		\
+		ft_lstadd_front.c	\
+		ft_lstsize.c	\
+		ft_lstlast.c	\
+		ft_lstadd_back.c	\
+		ft_lstdelone.c	\
+		ft_lstclear.c	\
+		ft_lstiter.c	\
+		ft_lstmap.c
 
 OBJECTS = $(SRC:.c=.o)
-
+OBJECTS_B = $(SRC_B:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
-	ar rcs $(NAME) $(OBJECTS)
+$(NAME): $(OBJECTS) $(HEADER)
+	ar -rcs $(NAME) $(OBJECTS) 
+
+bonus : $(OBJECTS) $(OBJECTS_B)  $(HEADER)
+	ar -rcs $(NAME) $(OBJECTS) $(OBJECTS_B)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
-	rm -rf $(OBJECTS)
+	rm -rf $(OBJECTS) $(OBJECTS_B) 
 
 fclean: clean
 	rm -rf $(NAME)

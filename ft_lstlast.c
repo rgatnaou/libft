@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.C                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgatnaou <rgatnaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/07 11:36:32 by rgatnaou          #+#    #+#             */
-/*   Updated: 2021/11/17 10:47:48 by rgatnaou         ###   ########.fr       */
+/*   Created: 2021/11/18 18:37:48 by rgatnaou          #+#    #+#             */
+/*   Updated: 2021/11/18 18:52:19 by rgatnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
-
-	i = 0;
-	if (!dst && !src)
+	if (!lst)
 		return (NULL);
-	if (dst > src)
-	{
-		while (len--)
-			*((char *)dst + len) = *((char *)src + len);
-	}
-	else
-		ft_memcpy(dst, src, len);
-	return (dst);
+	while (lst->next)
+		lst = lst->next;
+	return(lst);
 }

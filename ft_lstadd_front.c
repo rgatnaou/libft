@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgatnaou <rgatnaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/07 11:36:32 by rgatnaou          #+#    #+#             */
-/*   Updated: 2021/11/17 10:47:48 by rgatnaou         ###   ########.fr       */
+/*   Created: 2021/11/18 16:33:30 by rgatnaou          #+#    #+#             */
+/*   Updated: 2021/11/19 15:57:34 by rgatnaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t	i;
-
-	i = 0;
-	if (!dst && !src)
-		return (NULL);
-	if (dst > src)
+	if (new != NULL)
 	{
-		while (len--)
-			*((char *)dst + len) = *((char *)src + len);
+		new->next = *lst;
+		*lst = new;
 	}
-	else
-		ft_memcpy(dst, src, len);
-	return (dst);
 }
+
+// int	main(void)
+// {
+// 	t_list	**lst;
+// 	t_list	*ls;
+
+// 	ls = ft_lstnew("first");
+// 	*lst = ls;
+// 	ls->next = ft_lstnew(" sconde");
+// 	ls->next->next = 0;
+// 	ft_lstadd_front(lst, ft_lstnew("0"));
+// 	while (*lst)
+// 	{
+// 		printf("%s", (char *) (*lst)->content);
+// 		*lst= (*lst)->next;
+// 	}
+// }
